@@ -1,25 +1,17 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# # Residual Histogram
-# ## Creating an histogram from residual to see queue legnth distribution
-
-# run html
-
-# In[19]:
-
 import matplotlib.pyplot as plt
 import numpy as np
 import os
+from stats_util import Type, get_serie
 
 path = os.getcwd()
-path 
+path
 dataset = np.loadtxt(path + "/../data/metric.csv", delimiter=",")
-fn = dataset[:,3]
+
+fn = get_serie(dataset, Type.qps_cap, None, None)
+del dataset
 
 
-#plt.plot(dataset[1])
-plt.hist(fn,bins=50)
+plt.hist(fn, bins=50)
 # plt.gca().set_xscale("log", nonposx='clip')
 # plt.gca().set_yscale("log", nonposy='clip')
 plt.title('rsidual distribution')
@@ -29,7 +21,3 @@ plt.show()
 
 
 # In[ ]:
-
-
-
-

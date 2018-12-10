@@ -1,2 +1,5 @@
 .idea
 metricas.iml
+*.pyc
+src/.ipynb_checkpoints/*
+*.log
