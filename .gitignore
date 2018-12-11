@@ -4,3 +4,4 @@ metricas.iml
 src/.ipynb_checkpoints/*
 *.log
 *.csv
+data/metric.csv
