@@ -6,6 +6,7 @@ from stats_util import Type, get_serie
 path = os.getcwd()
 path
 dataset = np.loadtxt(path + "/../data/metric.csv", delimiter=",")
+dataset = np.delete(dataset, [1,], axis=1)
 
 fn = get_serie(dataset, Type.qps_cap, None, None)
 del dataset
