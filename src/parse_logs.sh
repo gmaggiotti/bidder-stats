@@ -1,2 +1,2 @@
 #!/bin/bash
-cat ../data/safirortb.log | grep qps | awk -F " " '{ printf("%s%s,%s,%s,%s,%s,%s%s\n",$1,$2,$6,$9,$12,$15,$19,$29) }' | sed 's/INFO:rtb:threadpool:worker://' |sed 's/s//' | sed 's/-//g'| sed 's/://g' > ../data/metric.csv
+cat ../data/$1.log | grep qps | awk -F " " '{ printf("%s%s,%s,%s,%s,%s,%s%s\n",$1,$2,$6,$9,$12,$15,$19,$29) }' | sed 's/INFO:rtb:threadpool:worker://' |sed 's/s//' | sed 's/-//g'| sed 's/://g' > ../data/$1.csv
