@@ -15,7 +15,7 @@ del dataset
 plt.hist(fn, bins=50)
 # plt.gca().set_xscale("log", nonposx='clip')
 # plt.gca().set_yscale("log", nonposy='clip')
-plt.title('rsidual distribution')
+plt.title('residual distribution')
 plt.xlabel('queue size')
 plt.ylabel('auctions');
 plt.show()
