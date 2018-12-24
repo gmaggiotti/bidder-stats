@@ -1,5 +1,6 @@
 from pyhive import presto
 import pandas as pd
+import numpy as np
 
 def enum(**enums):
     return type('Enum', (), enums)
@@ -38,3 +39,9 @@ def get_presto_bidrate_histogram(beans, date_from, date_to):
     xvals = [int(x[0]) for x in hist]
     yvals = [x[1] for x in hist]
     return xvals, yvals
+
+def get_stats(x,y):
+    n = np.sum(y)
+    mean = np.dot(x,y)/n
+    standard_dsviation = np.sqrt(np.sum(np.power((np.array(x) - mean), 2) * np.array(y)) / n)
+    return mean, standard_dsviation
