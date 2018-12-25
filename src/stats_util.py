@@ -40,8 +40,9 @@ def get_presto_bidrate_histogram(beans, date_from, date_to):
     yvals = [x[1] for x in hist]
     return xvals, yvals
 
-def get_stats(x,y):
+
+def get_stats(x, y):
     n = np.sum(y)
-    mean = np.dot(x,y)/float(n)
-    standard_dsviation = np.sqrt(np.sum( (np.array(x) - mean)**2 * np.array(y)) / float(n))
+    mean = np.dot(x, y) / float(n)
+    standard_dsviation = np.sqrt(np.sum((x - mean) ** 2 * np.array(y)) / float(n))
     return mean, standard_dsviation
