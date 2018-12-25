@@ -5,11 +5,13 @@ hist = None
 x= [1,2.4,3]
 y= [10,30,10]
 
+x=[23,24,25,26,27,28,29,30,31]
+y=[3,7,13,18,23,17,8,6,5]
 
 n = np.sum(y)
-mean = np.dot(x,y)/n
-standar_dsviation = np.sqrt(np.sum(np.power((np.array(x) - mean), 2) * np.array(y)) / n)
+mean = np.dot(x,y)/float(n)
+standar_dsviation = np.sqrt(np.sum( (np.array(x) - mean)**2 * np.array(y)) / float(n))
+
 
 print(mean)
 
-print var
