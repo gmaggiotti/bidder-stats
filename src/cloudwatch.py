@@ -1,8 +1,9 @@
 import boto3
 from datetime import datetime, timedelta
+from stats_util import get_cloudwatch_eff_histogram
 
 # Create CloudWatch client
-cloudwatch = boto3.client('cloudwatch')
+cloudwatch = boto3.client('cloudwatch',region_name='ap-southeast-1')
 
 # List metrics through the pagination interface
 # paginator = cloudwatch.get_paginator('list_metrics')
@@ -12,42 +13,34 @@ cloudwatch = boto3.client('cloudwatch')
 #     print(response['Metrics'])
 
 
-response = cloudwatch.get_metric_data(
-    MetricDataQueries=[
-        {
-            'Id': 'qps',
-            'MetricStat': {
-                'Metric': {
-                    'Namespace': 'RTB',
-                    'MetricName': 'QPS',
-                    'Dimensions': [
-                        # {
-                        #     u'Name': 'InstanceName',
-                        #     u'Value': 'Safiro RTB 27'
-                        # },
-                        # {
-                        #     u'Name': 'InstanceRegion',
-                        #     u'Value': 'us-east-2'
-                        # },
-                        {
-                            u'Name': 'QPSType',
-                            u'Value': 'eff'
-                        }
-                    ],
-                },
-                'Period': 300,
-                'Stat': 'Average',
-                'Unit': 'Count/Second'
-            },
-            'ReturnData': True
-        },
-    ],
-    StartTime=datetime(2018, 11, 12),
-    EndTime=datetime(2018, 12, 22),
-    ScanBy='TimestampDescending',
-    MaxDatapoints=123)
-
-print response
+# response = cloudwatch.get_metric_data(
+#     MetricDataQueries=[
+#         {
+#             'Id': 'qps',
+#             'MetricStat': {
+#                 'Metric': {
+#                     'Namespace': 'RTB',
+#                     'MetricName': 'QPS',
+#                     'Dimensions': [
+#                         {
+#                             u'Name': 'QPSType',
+#                             u'Value': 'eff'
+#                         }
+#                     ],
+#                 },
+#                 'Period': 300,
+#                 'Stat': 'Average',
+#                 'Unit': 'Count/Second'
+#             },
+#             'ReturnData': True
+#         },
+#     ],
+#     StartTime=datetime(2018, 11, 12),
+#     EndTime=datetime(2018, 12, 22),
+#     ScanBy='TimestampDescending',
+#     MaxDatapoints=123)
+#
+# print response
 
 # paginator = cloudwatch.get_paginator('describe_alarms')
 # for response in paginator.paginate(StateValue='INSUFFICIENT_DATA'):
@@ -56,10 +49,6 @@ print response
 
 
 CLOUDWATCH_METRICS=[
-    {
-        'namespace': 'RTB',
-        'metricname': 'QPS'
-    },
     {
         'namespace': 'RTB',
         'metricname': 'QPS',
@@ -72,30 +61,23 @@ CLOUDWATCH_METRICS=[
     },
 ]
 
-CLOUDWATCH_PERIOD=300
+CLOUDWATCH_PERIOD=1800
 
 
-for metric in CLOUDWATCH_METRICS:
-    print 'INFO: Reading metric %s from namespace %s' % (metric['metricname'], metric['namespace'])
-    response = None
-    if 'dimensions' in metric.keys():
-        response = cloudwatch.get_metric_statistics(
-            Namespace=metric['namespace'],
-            MetricName=metric['metricname'],
-            Dimensions=metric['dimensions'],
-            StartTime=datetime(2018, 12, 26),
-            EndTime=datetime.utcnow(),
-            Period=CLOUDWATCH_PERIOD,
-            Statistics=['Average', 'Minimum', 'Maximum'],
-            Unit='Count/Second'
-        )
-    else:
-        response = cloudwatch.get_metric_statistics(
-            Namespace=metric['namespace'],
-            MetricName=metric['metricname'],
-            StartTime=datetime(2018, 12, 26),
-            EndTime=datetime.utcnow(),
-            Period=CLOUDWATCH_PERIOD,
-            Statistics=['Average', 'Minimum', 'Maximum'],
-            Unit='Count/Second')
-    print response
+# for metric in CLOUDWATCH_METRICS:
+#     print 'INFO: Reading metric %s from namespace %s' % (metric['metricname'], metric['namespace'])
+#     response = cloudwatch.get_metric_statistics(
+#         Namespace=metric['namespace'],
+#         MetricName=metric['metricname'],
+#         Dimensions=metric['dimensions'],
+#         StartTime=datetime(2018, 12, 1),
+#         EndTime=datetime.utcnow(),
+#         Period=CLOUDWATCH_PERIOD,
+#         Statistics=['Average'],
+#         Unit='Count/Second'
+#     )
+#
+#     eff_list =sorted( [ (eff['Timestamp'],eff['Average']) for eff in response['Datapoints']] )
+
+time, freq = get_cloudwatch_eff_histogram(datetime(2018, 12, 1),datetime(2018, 12, 27),'ap-southeast-1')
+print freq
