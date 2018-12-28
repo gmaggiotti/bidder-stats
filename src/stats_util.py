@@ -57,8 +57,8 @@ CLOUDWATCH_METRICS=[
         'dimensions': [
             {
                 u'Name': 'QPSType',
-                u'Value': 'eff'
-            }
+                u'Value': 'cap'
+            },
         ]
     },
 ]
@@ -66,8 +66,9 @@ CLOUDWATCH_METRICS=[
 CLOUDWATCH_PERIOD=1800
 
 
-def get_cloudwatch_eff_histogram(date_from, date_to, region):
+def get_cloudwatch_eff_histogram(date_from, date_to, region,metric):
     # Create CloudWatch client
+    CLOUDWATCH_METRICS[0]['dimensions'][0]['Value']=metric
     cloudwatch = boto3.client('cloudwatch',region_name=region)
     for metric in CLOUDWATCH_METRICS:
         response = cloudwatch.get_metric_statistics(
