@@ -4,9 +4,9 @@ import numpy as np
 from datetime import datetime
 from stats_util import get_cloudwatch_times_serie
 
-time, bids16 = get_cloudwatch_times_serie(datetime(2019, 1, 16,00),datetime(2019, 1, 16,17),'us-east-2','bids')
-time, bids21 = get_cloudwatch_times_serie(datetime(2019, 1, 21,00),datetime(2019, 1, 21,17),'us-east-2','bids')
-time, bids23 = get_cloudwatch_times_serie(datetime(2019, 1, 23,00),datetime(2019, 1, 23,17),'us-east-2','bids')
+time, bids16 = get_cloudwatch_times_serie(datetime(2019, 1, 16,00),datetime(2019, 1, 16,21),'us-east-2','bids')
+time, bids21 = get_cloudwatch_times_serie(datetime(2019, 1, 21,00),datetime(2019, 1, 21,21),'us-east-2','bids')
+time, bids23 = get_cloudwatch_times_serie(datetime(2019, 1, 23,00),datetime(2019, 1, 23,21),'us-east-2','bids')
 
 plt.plot(time,bids16, label="b16")
 plt.plot(time,bids21, label="b21")

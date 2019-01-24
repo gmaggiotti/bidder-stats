@@ -16,7 +16,7 @@ import numpy as np
 
 
 names = ['predictor_2019-01-18-16:30', 'predictor_2019-01-22-16:30',
-         'predictor_2019-01-22-17:30']
+         'predictor_2019-01-18-17:30']
 predictors = []
 for name in names:
     with open(name, 'rb') as f:
@@ -41,7 +41,19 @@ print("L2 Fri vs Tue: {}".format(L2_fri_tue))
 L2_fri_fri = np.sum((as_vectors[1] - as_vectors[2])**2)
 print("L2 Fri vs Fri: {}".format(L2_fri_fri))
 
-diff = as_vectors[0] - as_vectors[1]
-max_args = (as_vectors[0] - as_vectors[1]).argsort()
+diff = np.abs(as_vectors[0] - as_vectors[1])
+max_args = diff.argsort()[::-1]
 all_features = np.asarray(all_features)
 print(all_features[max_args[:20]])
+
+
+import matplotlib.pyplot as plt
+
+s = sorted(diff)
+plt.plot(s, label="b23")
+
+plt.title('GDNN vs DNN loss through generations')
+plt.xlabel('epochs (600 epochs is a new generation for GDNN)')
+plt.ylabel('loss');
+plt.legend()
+plt.show()
