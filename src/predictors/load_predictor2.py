@@ -1,5 +1,5 @@
 import pickle
-
+import timeit
 from functools import reduce
 
 import numpy as np
@@ -15,26 +15,18 @@ import numpy as np
 
 
 names = ['predictor_2019-01-18-16:30', 'predictor_2019-01-22-16:30',
-         'predictor_2019-01-22-17:30']
+         'predictor_2019-01-18-17:30']
 predictors = []
 for name in names:
     with open(name, 'rb') as f:
         predictors.append(pickle.load(f))
 
-feature_set = set()
-for predictor in predictors:
-    for feature in predictor[1]:
-        feature_set.add(feature)
+feature_set = set(predictors[0][1]).union(predictors[1][1]).union(predictors[2][1])
+preds = [dict(zip(predictors[i][1], predictors[i][2])) for i in range(0, 3)]
+as_vectors = {0: [], 1: [], 2: []}
 
-pred1 = []
 for feature in feature_set:
-    try:
-        idx = predictors[0][1].index(feature)
-        pred1.append(predictors[0][2][idx])
-    except ValueError as v:
-        pred1.append(0)
+    [as_vectors[i].append(preds[i].get(feature, 0)) for i in range(0, 2)]
 
-as_dicts = [{} for _ in predictors]
-for d, predictor in zip(as_dicts, predictors):
-    for feature, coef in zip(predictor[1], predictor[2]):
-        d[feature] = coef
+L2 = np.sum((np.array(as_vectors[0]) - np.array(as_vectors[1])) ** 2)
+print L2

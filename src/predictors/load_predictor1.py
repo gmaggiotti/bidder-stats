@@ -44,6 +44,7 @@ print("L2 Fri vs Fri: {}".format(L2_fri_fri))
 diff = np.abs(as_vectors[0] - as_vectors[1])
 max_args = diff.argsort()[::-1]
 all_features = np.asarray(all_features)
+result = zip(all_features[max_args[:20]],sorted(diff,reverse=True))
 print(all_features[max_args[:20]])
 
 
