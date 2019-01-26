@@ -64,7 +64,7 @@ CLOUDWATCH_METRICS = {
 CLOUDWATCH_PERIOD = 3600
 
 
-def get_cloudwatch_times_serie(date_from, date_to, region, metric):
+def get_cloudwatch_times_serie(date_from, date_to, region, metric, stats):
     # Create CloudWatch client
     CLOUDWATCH_METRICS['dimensions'][0]['Value'] = metric
     cloudwatch = boto3.client('cloudwatch', region_name=region)
@@ -75,11 +75,11 @@ def get_cloudwatch_times_serie(date_from, date_to, region, metric):
         StartTime=date_from,
         EndTime=date_to,
         Period=CLOUDWATCH_PERIOD,
-        Statistics=['Average'],
+        Statistics=[stats],
         Unit='Count/Second'
         )
 
-    eff_list = sorted([(eff['Timestamp'], eff['Average']) for eff in response['Datapoints']])
+    eff_list = sorted([(eff['Timestamp'], eff[stats]) for eff in response['Datapoints']])
     timestamp = [x[0] for x in eff_list]
     freq = [x[1] for x in eff_list]
     return timestamp, freq
