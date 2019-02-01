@@ -60,13 +60,25 @@ CLOUDWATCH_METRICS = {
     ]
 }
 
+CLOUDWATCH_METRICS_1 = {
+    'namespace': 'CloudFront',
+    'metricname': 'Requests',
+    'dimensions': [
+        {
+            u'Name': 'Distributionid',
+            u'Value': 'E317LTNGG1QQ5K'
+        },
+    ]
+}
 
-CLOUDWATCH_PERIOD = 3600
+
+CLOUDWATCH_PERIOD = 300
 
 
 def get_cloudwatch_times_serie(date_from, date_to, region, metric, stats):
     # Create CloudWatch client
     CLOUDWATCH_METRICS['dimensions'][0]['Value'] = metric
+    #CLOUDWATCH_METRICS = CLOUDWATCH_METRICS_1
     cloudwatch = boto3.client('cloudwatch', region_name=region)
     response = cloudwatch.get_metric_statistics(
         Namespace=CLOUDWATCH_METRICS['namespace'],

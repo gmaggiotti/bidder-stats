@@ -6,8 +6,8 @@ from stats_util import get_cloudwatch_times_serie
 
 stats = 'Average'
 
-time, cap = get_cloudwatch_times_serie(datetime(2019, 1, 26, 00), datetime(2019, 1, 26, 22), 'us-east-2', 'cap',stats)
-time, eff = get_cloudwatch_times_serie(datetime(2019, 1, 26, 00), datetime(2019, 1, 26, 22), 'us-east-2', 'eff',stats)
+time, cap = get_cloudwatch_times_serie(datetime(2019, 1, 31, 18), datetime(2019, 2, 1, 18), 'ap-southeast-1', 'cap',stats)
+time, eff = get_cloudwatch_times_serie(datetime(2019, 1, 31, 18), datetime(2019, 2, 1, 18), 'us-east-2', 'eff',stats)
 
 
 plt.plot(time, cap, label="cap")
@@ -19,7 +19,7 @@ plt.ylabel('freq');
 plt.legend()
 plt.show()
 
-time, bids = get_cloudwatch_times_serie(datetime(2019, 1, 26, 00), datetime(2019, 1, 26, 22), 'us-east-2', 'bids',stats)
+time, bids = get_cloudwatch_times_serie(datetime(2019, 1, 31, 18), datetime(2019, 2, 1, 18), 'ap-southeast-1', 'bids',stats)
 
 
 plt.plot(time, bids, label="bids")
@@ -45,5 +45,7 @@ plt.show()
 #
 # x1 = np.inner(a,a)
 # x2 = np.dot(a,a)
+
+
 
 

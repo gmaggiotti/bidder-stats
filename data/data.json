@@ -1,0 +1,317 @@
+[
+  {
+    u
+    'Namespace': 'AWS/Logs',
+    u
+    'Dimensions': [
+      {
+        u
+        'Name': 'LogGroupName',
+        u
+        'Value': '/aws/lambda/prd-cupper-counter-events'
+      }
+    ],
+    u
+    'MetricName': 'IncomingLogEvents'
+  },
+  {
+    u
+    'Namespace': 'AWS/Logs',
+    u
+    'Dimensions': [
+      {
+        u
+        'Name': 'LogGroupName',
+        u
+        'Value': 'safiro_replication'
+      }
+    ],
+    u
+    'MetricName': 'IncomingLogEvents'
+  },
+  {
+    u
+    'Namespace': 'AWS/Logs',
+    u
+    'Dimensions': [
+      {
+        u
+        'Name': 'LogGroupName',
+        u
+        'Value': '/aws/lambda/prd-cupper-counter-clicks'
+      }
+    ],
+    u
+    'MetricName': 'IncomingLogEvents'
+  },
+  {
+    u
+    'Namespace': 'AWS/Logs',
+    u
+    'Dimensions': [
+      {
+        u
+        'Name': 'LogGroupName',
+        u
+        'Value': '/aws/lambda/prd-cupper-counter-installs'
+      }
+    ],
+    u
+    'MetricName': 'IncomingLogEvents'
+  },
+  {
+    u
+    'Namespace': 'AWS/Logs',
+    u
+    'Dimensions': [
+      {
+        u
+        'Name': 'LogGroupName',
+        u
+        'Value': '/aws/lambda/spot-monitoring'
+      }
+    ],
+    u
+    'MetricName': 'IncomingLogEvents'
+  },
+  {
+    u
+    'Namespace': 'AWS/Logs',
+    u
+    'Dimensions': [
+      {
+        u
+        'Name': 'LogGroupName',
+        u
+        'Value': '/aws/lambda/prd-devops-spots-monitoring'
+      }
+    ],
+    u
+    'MetricName': 'IncomingLogEvents'
+  },
+  {
+    u
+    'Namespace': 'AWS/Logs',
+    u
+    'Dimensions': [
+      {
+        u
+        'Name': 'LogGroupName',
+        u
+        'Value': '/aws/lambda/prd-aleph-log-partitioner'
+      }
+    ],
+    u
+    'MetricName': 'IncomingLogEvents'
+  },
+  {
+    u
+    'Namespace': 'AWS/Logs',
+    u
+    'Dimensions': [
+      {
+        u
+        'Name': 'LogGroupName',
+        u
+        'Value': '/aws/lambda/mParticle'
+      }
+    ],
+    u
+    'MetricName': 'IncomingLogEvents'
+  },
+  {
+    u
+    'Namespace': 'AWS/Logs',
+    u
+    'Dimensions': [
+      {
+        u
+        'Name': 'LogGroupName',
+        u
+        'Value': '/aws/lambda/prd-aleph-mario-partitioner'
+      }
+    ],
+    u
+    'MetricName': 'IncomingLogEvents'
+  },
+  {
+    u
+    'Namespace': 'AWS/Logs',
+    u
+    'Dimensions': [
+      {
+        u
+        'Name': 'LogGroupName',
+        u
+        'Value': '/aws/lambda/processOrganicInstalls'
+      }
+    ],
+    u
+    'MetricName': 'IncomingLogEvents'
+  },
+  {
+    u
+    'Namespace': 'AWS/Logs',
+    u
+    'Dimensions': [
+      {
+        u
+        'Name': 'LogGroupName',
+        u
+        'Value': 'RDSOSMetrics'
+      }
+    ],
+    u
+    'MetricName': 'IncomingLogEvents'
+  },
+  {
+    u
+    'Namespace': 'AWS/Logs',
+    u
+    'Dimensions': [
+      {
+        u
+        'Name': 'LogGroupName',
+        u
+        'Value': '/var/log/messages'
+      }
+    ],
+    u
+    'MetricName': 'IncomingLogEvents'
+  },
+  {
+    u
+    'Namespace': 'AWS/Logs',
+    u
+    'Dimensions': [
+      {
+        u
+        'Name': 'LogGroupName',
+        u
+        'Value': '/aws/lambda/processOrganicEvents'
+      }
+    ],
+    u
+    'MetricName': 'IncomingLogEvents'
+  },
+  {
+    u
+    'Namespace': 'AWS/Logs',
+    u
+    'Dimensions': [
+      {
+        u
+        'Name': 'LogGroupName',
+        u
+        'Value': 'safiroimg'
+      }
+    ],
+    u
+    'MetricName': 'IncomingLogEvents'
+  },
+  {
+    u
+    'Namespace': 'AWS/Logs',
+    u
+    'Dimensions': [
+      {
+        u
+        'Name': 'LogGroupName',
+        u
+        'Value': '/aws/lambda/lambda-cloudwatch-slack'
+      }
+    ],
+    u
+    'MetricName': 'IncomingLogEvents'
+  },
+  {
+    u
+    'Namespace': 'AWS/Logs',
+    u
+    'Dimensions': [
+      {
+        u
+        'Name': 'LogGroupName',
+        u
+        'Value': '/aws/lambda/lambda-cloudwatch-slack-critical'
+      }
+    ],
+    u
+    'MetricName': 'IncomingLogEvents'
+  },
+  {
+    u
+    'Namespace': 'AWS/Logs',
+    u
+    'Dimensions': [
+      {
+        u
+        'Name': 'LogGroupName',
+        u
+        'Value': 'safiro_janitor'
+      }
+    ],
+    u
+    'MetricName': 'IncomingLogEvents'
+  },
+  {
+    u
+    'Namespace': 'AWS/Logs',
+    u
+    'Dimensions': [
+      {
+        u
+        'Name': 'LogGroupName',
+        u
+        'Value': '/aws/lambda/prd-aleph-msg-partitioner'
+      }
+    ],
+    u
+    'MetricName': 'IncomingLogEvents'
+  },
+  {
+    u
+    'Namespace': 'AWS/Logs',
+    u
+    'Dimensions': [
+      {
+        u
+        'Name': 'LogGroupName',
+        u
+        'Value': 'safiroapi'
+      }
+    ],
+    u
+    'MetricName': 'IncomingLogEvents'
+  },
+  {
+    u
+    'Namespace': 'AWS/Logs',
+    u
+    'Dimensions': [
+      {
+        u
+        'Name': 'LogGroupName',
+        u
+        'Value': '/aws/lambda/prd-aleph-cloudwatch-metrics'
+      }
+    ],
+    u
+    'MetricName': 'IncomingLogEvents'
+  },
+  {
+    u
+    'Namespace': 'AWS/Logs',
+    u
+    'Dimensions': [
+      {
+        u
+        'Name': 'LogGroupName',
+        u
+        'Value': '/aws/kinesisfirehose/mparticle-test-stream'
+      }
+    ],
+    u
+    'MetricName': 'IncomingLogEvents'
+  }
+]
