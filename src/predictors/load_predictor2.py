@@ -28,7 +28,7 @@ as_vectors = {0: [], 1: [], 2: []}
 for feature in feature_set:
     [as_vectors[i].append(preds[i].get(feature, 0)) for i in range(0, 3)]
 
-L2 = np.sum(np.sum(np.subtract(as_vectors[0], as_vectors[1]) ** 2))
+L2 = np.sum(np.subtract(as_vectors[0], as_vectors[1]) ** 2)
 print("L2 distance 18 vs 22 {}".format(L2))
 
 L2 = np.sum((np.array(as_vectors[0]) - np.array(as_vectors[2])) ** 2)
