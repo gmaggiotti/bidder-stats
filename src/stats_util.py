@@ -72,7 +72,7 @@ CLOUDWATCH_METRICS_1 = {
 }
 
 
-CLOUDWATCH_PERIOD = 300
+CLOUDWATCH_PERIOD = 60
 
 
 def get_cloudwatch_times_serie(date_from, date_to, region, metric, stats):

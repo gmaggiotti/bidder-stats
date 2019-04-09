@@ -6,8 +6,8 @@ from stats_util import get_cloudwatch_times_serie
 
 stats = 'Average'
 
-time, cap = get_cloudwatch_times_serie(datetime(2019, 3, 3, 10), datetime(2019, 3, 3, 15), 'us-east-2', 'cap',stats)
-time, eff = get_cloudwatch_times_serie(datetime(2019, 3, 3, 10), datetime(2019, 3, 3, 15), 'us-east-2', 'eff',stats)
+time, cap = get_cloudwatch_times_serie(datetime(2019, 3, 31, 17), datetime(2019, 4, 1, 13), 'us-east-2', 'cap',stats)
+time, eff = get_cloudwatch_times_serie(datetime(2019, 3, 31, 17), datetime(2019, 4, 1, 13), 'us-east-2', 'eff',stats)
 
 
 plt.plot(time, cap, label="cap")
@@ -18,9 +18,8 @@ plt.xlabel('cap and eff serie')
 plt.ylabel('freq');
 plt.legend()
 plt.show()
-
-time, bids = get_cloudwatch_times_serie(datetime(2019, 3, 3, 10), datetime(2019, 3, 3, 15), 'us-east-2', 'bids',stats)
-
+#
+time, bids = get_cloudwatch_times_serie(datetime(2019, 3, 31, 17), datetime(2019, 4, 1, 13), 'us-east-2', 'bids',stats)
 
 plt.plot(time, bids, label="bids")
 
@@ -29,6 +28,13 @@ plt.xlabel('bids serie')
 plt.ylabel('loss');
 plt.legend()
 plt.show()
+
+# a = datetime(2019, 3, 1)
+# b = datetime(2019, 3, 21)
+# region = 'ap-southeast-1'
+# stats = 'Average'
+# time, cap = get_cloudwatch_times_serie(a,b,region,'bids',stats)
+# print cap
 
 
 # print np.sum(b16)
