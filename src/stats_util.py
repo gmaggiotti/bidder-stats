@@ -1,4 +1,4 @@
-from pyhive import presto
+# from pyhive import presto
 import numpy as np
 import boto3
 
