@@ -2,8 +2,7 @@ import pickle
 
 #nota, el que dice 2018-01-22 17:30, en realidad es del 18 de enero
 
-names = ['predictor_2019-01-18-16:30', 'predictor_2019-01-22-16:30',
-         'predictor_2019-01-22-17:30']
+names = ['cta_eta0_predictor', 'cta_eta1_predictor','vta_eta0_predictor','vta_eta1_predictor']
 predictors = []
 for name in names:
     with open(name, 'rb') as f:
